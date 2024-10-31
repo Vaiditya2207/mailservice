@@ -4,11 +4,13 @@ import authorization from './middlewares/authorization.js'
 import projectCreatorSignup from './routes/projectCreatorSignup.js'
 import projectCreatorFailedLogin from './routes/projectCreatorFailedLogin.js'
 import porjectCreatorOtpSender from './routes/projectCreatorOtpSender.js'
+import cors from 'cors'
 dotenv.config()
 
 const app = express()
 const port = process.env.SERVER_PORT || 8000
 app.use(express.json())
+app.use(cors())
 app.use(authorization)
 
 
