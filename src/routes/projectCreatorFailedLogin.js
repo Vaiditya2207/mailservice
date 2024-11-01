@@ -4,7 +4,7 @@ import sendMail from '../functions/sendMail.js'
 export default async (req, res) => {
     let messageList = req.body;
     for (let i of messageList) {
-        i.html = template.replace('[User\'s Name]', i.username).replace('[Date and Time]', i.dateAndTime).replace('[Location]', i.location).replace('[Device]', i.device);
+        i.html = template(i.userName, i.dateTime, i.location, i.device);
     }
     
     const status = await sendMail(messageList);
